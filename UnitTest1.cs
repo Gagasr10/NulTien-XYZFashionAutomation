@@ -1,4 +1,7 @@
-﻿namespace NulTien_XYZFashionAutomation;
+﻿using NUnit.Framework;
+
+
+namespace NulTien_XYZFashionAutomation;
 
 public class Tests
 {

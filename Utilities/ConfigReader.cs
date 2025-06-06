@@ -16,9 +16,16 @@ namespace NulTien_XYZFashionAutomation.Utilities
             configuration = builder.Build();
         }
 
-        public static string Browser => configuration["Browser"];
-        public static string BaseUrl => configuration["BaseUrl"];
-        public static int ImplicitWait => int.Parse(configuration["Timeouts:ImplicitWait"]);
-        public static int ExplicitWait => int.Parse(configuration["Timeouts:ExplicitWait"]);
+        public static string Browser =>
+            configuration["Browser"] ?? throw new Exception("Browser not found in appsettings.json");
+
+        public static string BaseUrl =>
+            configuration["BaseUrl"] ?? throw new Exception("BaseUrl not found in appsettings.json");
+
+        public static int ImplicitWait =>
+            int.Parse(configuration["Timeouts:ImplicitWait"] ?? "5");
+
+        public static int ExplicitWait =>
+            int.Parse(configuration["Timeouts:ExplicitWait"] ?? "10");
     }
 }

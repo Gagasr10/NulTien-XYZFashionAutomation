@@ -1,30 +1,39 @@
 using NUnit.Framework;
 using OpenQA.Selenium;
-using OpenQA.Selenium.Chrome;
-using NulTien_XYZFashionAutomation.Pages; // obavezno importuj LoginPage
+using NulTien_XYZFashionAutomation.Utilities;
+using NulTien_XYZFashionAutomation.Pages;
 using System.Threading;
 
-public class BaseTest
+namespace NulTien_XYZFashionAutomation.Tests
 {
-    private static ThreadLocal<IWebDriver> threadDriver = new ThreadLocal<IWebDriver>();
-    protected IWebDriver Driver => threadDriver.Value;
-
-    [SetUp]
-    public void SetUp()
+    [Parallelizable(ParallelScope.None)]
+    public class BaseTest
     {
-        threadDriver.Value = new ChromeDriver();
-        Driver.Manage().Window.Maximize();
-        Driver.Navigate().GoToUrl("https://rs.shop.xyz.fashion/"); // URL sajta
+        private static ThreadLocal<IWebDriver> threadDriver = new ThreadLocal<IWebDriver>();
+        protected IWebDriver Driver => threadDriver.Value!;
 
-        //Calling login method 
-        var loginPage = new LoginPage(Driver);
-        loginPage.Login("kixiwa5736@cigidea.com", "JohnEng0 ");
-    }
+        [SetUp]
+        public void SetUp()
+        {
+            threadDriver.Value = DriverFactory.CreateDriver();
+            Driver.Manage().Window.Maximize();
+            Driver.Navigate().GoToUrl(ConfigReader.BaseUrl);
+            new BasePage(Driver).acceptCookiesFromShadowDOM();
+            Thread.Sleep(2000);
 
-    [TearDown]
-    public void TearDown()
-    {
-        Driver.Quit();
-        threadDriver.Dispose();
+
+
+            var loginPage = new LoginPage(Driver);
+            loginPage.OpenLoginForm();
+            loginPage.Login("wagas44949@adrewire.com", "JohnEng0");
+        }
+
+        [TearDown]
+        public void TearDown()
+        {
+            Driver.Quit();
+            threadDriver.Dispose();
+ 
+        }
     }
 }

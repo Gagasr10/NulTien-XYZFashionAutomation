@@ -11,6 +11,7 @@
 
   <ItemGroup>
     <!-- Microsoft Extensions -->
+    <PackageReference Include="DotNetSeleniumExtras.WaitHelpers" Version="3.11.0" />
     <PackageReference Include="Microsoft.Extensions.Configuration" Version="9.0.5" />
     <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="9.0.5" />
 
@@ -25,5 +26,12 @@
     <PackageReference Include="Selenium.WebDriver.GeckoDriver" Version="0.36.0" />
     <PackageReference Include="Selenium.WebDriver.MSEdgeDriver" Version="136.0.3240.76" />
   </ItemGroup>
+
+  <ItemGroup>
+  <None Update="appsettings.json">
+    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+  </None>
+</ItemGroup>
+
 
 </Project>

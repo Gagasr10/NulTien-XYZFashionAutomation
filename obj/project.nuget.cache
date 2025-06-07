@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "m3emrhfo2R0=",
+  "dgSpecHash": "GKyZ3hQ7Hzo=",
   "success": true,
   "projectFilePath": "C:\\Users\\Admin\\NulTien-XYZFashionAutomation\\NulTien-XYZFashionAutomation.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\Admin\\.nuget\\packages\\dotnetseleniumextras.waithelpers\\3.11.0\\dotnetseleniumextras.waithelpers.3.11.0.nupkg.sha512",
     "C:\\Users\\Admin\\.nuget\\packages\\microsoft.applicationinsights\\2.22.0\\microsoft.applicationinsights.2.22.0.nupkg.sha512",
     "C:\\Users\\Admin\\.nuget\\packages\\microsoft.codecoverage\\17.14.1\\microsoft.codecoverage.17.14.1.nupkg.sha512",
     "C:\\Users\\Admin\\.nuget\\packages\\microsoft.extensions.configuration\\9.0.5\\microsoft.extensions.configuration.9.0.5.nupkg.sha512",

@@ -9,10 +9,12 @@ C:\Users\Admin\NulTien-XYZFashionAutomation\bin\Debug\net8.0\nunit.engine.api.dl
 C:\Users\Admin\NulTien-XYZFashionAutomation\bin\Debug\net8.0\nunit.engine.core.dll
 C:\Users\Admin\NulTien-XYZFashionAutomation\bin\Debug\net8.0\testcentric.engine.metadata.dll
 C:\Users\Admin\NulTien-XYZFashionAutomation\bin\Debug\net8.0\NUnit3.TestAdapter.dll
+C:\Users\Admin\NulTien-XYZFashionAutomation\bin\Debug\net8.0\appsettings.json
 C:\Users\Admin\NulTien-XYZFashionAutomation\bin\Debug\net8.0\NulTien-XYZFashionAutomation.deps.json
 C:\Users\Admin\NulTien-XYZFashionAutomation\bin\Debug\net8.0\NulTien-XYZFashionAutomation.runtimeconfig.json
 C:\Users\Admin\NulTien-XYZFashionAutomation\bin\Debug\net8.0\NulTien-XYZFashionAutomation.dll
 C:\Users\Admin\NulTien-XYZFashionAutomation\bin\Debug\net8.0\NulTien-XYZFashionAutomation.pdb
+C:\Users\Admin\NulTien-XYZFashionAutomation\bin\Debug\net8.0\SeleniumExtras.WaitHelpers.dll
 C:\Users\Admin\NulTien-XYZFashionAutomation\bin\Debug\net8.0\Microsoft.ApplicationInsights.dll
 C:\Users\Admin\NulTien-XYZFashionAutomation\bin\Debug\net8.0\Microsoft.VisualStudio.CodeCoverage.Shim.dll
 C:\Users\Admin\NulTien-XYZFashionAutomation\bin\Debug\net8.0\Microsoft.Extensions.Configuration.dll

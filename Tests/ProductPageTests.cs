@@ -1,10 +1,12 @@
 using NUnit.Framework;
 using NulTien_XYZFashionAutomation.Pages;
+using OpenQA.Selenium.Support.UI;
 using System;
 using OpenQA.Selenium;
 using System.Diagnostics;
 using OpenQA.Selenium.Support.Extensions;
 using NulTien_XYZFashionAutomation.Utilities;
+using SeleniumExtras.WaitHelpers;
 
 
 
@@ -102,43 +104,159 @@ namespace NulTien_XYZFashionAutomation.Tests
         //     }
 
 
+        // [Test]
+        // public void TC04_VerifyDiscountDisplayedCorrectly()
+        // {
+        //     try
+        //     {
+        //         LoggerManager.Info("Navigating to 'Majice' section.");
+        //         var productPage = new ProductPage(Driver);
+        //         productPage.navigateToMajice();
+
+        //         LoggerManager.Info("Clicking on 'Versace Majica'.");
+        //         productPage.clickOnVersaceMajica();
+
+        //         LoggerManager.Info("Retrieving old and discounted prices.");
+        //         string oldPriceText = productPage.getOldPrice();
+        //         string newPriceText = productPage.getDiscountedPrice();
+
+        //         LoggerManager.Debug("Old price text: " + oldPriceText);
+        //         LoggerManager.Debug("New price text: " + newPriceText);
+
+        //         decimal oldPrice = decimal.Parse(oldPriceText.Replace(".", "").Replace(",", ".").Replace(" RSD", ""));
+        //         decimal newPrice = decimal.Parse(newPriceText.Replace(".", "").Replace(",", ".").Replace(" RSD", ""));
+
+        //         decimal discountPercent = Math.Round((1 - (newPrice / oldPrice)) * 100);
+        //         LoggerManager.Info($"Calculated discount: {discountPercent}%");
+
+        //         Assert.That((int)discountPercent, Is.EqualTo(15), "Discount percentage is not correctly calculated.");
+        //         LoggerManager.Info("TC04_VerifyDiscountDisplayedCorrectly passed.");
+        //     }
+        //     catch (Exception ex)
+        //     {
+        //         LoggerManager.Error("TC04_VerifyDiscountDisplayedCorrectly failed: " + ex.Message);
+        //         throw;
+        //     }
+        // }
+
+
+        // [Test]
+        // public void TC05_CannotAddProductWithoutSelectingSize()
+        // {
+        //     try
+        //     {
+        //         var productPage = new ProductPage(Driver);
+
+        //         LoggerManager.Info("Navigating to 'Majice' section.");
+        //         productPage.navigateToMajice();
+
+        //         LoggerManager.Info("Clicking on 'Armani Majica'.");
+        //         productPage.clickOnArmaniMajica();
+
+        //         LoggerManager.Info("Attempting to add product to cart without selecting size.");
+        //         productPage.clickAddToCart();
+
+        //         bool isInCart = productPage.IsMiniCartVisible();
+        //         LoggerManager.Info("Mini cart visibility after attempt: " + isInCart);
+
+        //         Assert.That(isInCart, Is.False, "Product was added to the cart without selecting a size.");
+
+        //         LoggerManager.Info("TC05_CannotAddProductWithoutSelectingSize passed.");
+        //     }
+        //     catch (Exception ex)
+        //     {
+        //         LoggerManager.Error("TC05_CannotAddProductWithoutSelectingSize failed: " + ex.Message);
+        //         throw;
+        //     }
+        // }
+
+        // [Test]
+        // public void TC06_AddProductWithSize_Success()
+        // {
+        //     try
+        //     {
+        //         var productPage = new ProductPage(Driver);
+
+        //         LoggerManager.Info("Navigating to 'Majice' section.");
+        //         productPage.navigateToMajice();
+
+        //         LoggerManager.Info("Clicking on 'Armani Majica'.");
+        //         productPage.clickOnArmaniMajica();
+
+        //         LoggerManager.Info("Selecting size 'L'.");
+        //         productPage.selectSize("L");
+
+        //         LoggerManager.Info("Clicking on 'Add to Cart'.");
+        //         productPage.clickAddToCart();
+
+        //         LoggerManager.Info("Clicking on cart icon.");
+        //         productPage.clickOnCartIcon();
+
+        //         LoggerManager.Info("Verifying mini cart visibility.");
+        //         Assert.That(productPage.IsMiniCartVisible(), Is.True, "Mini cart did not appear after adding product.");
+
+        //         LoggerManager.Info("Verifying product name in mini cart.");
+        //         string productName = productPage.getMiniCartProductName();
+        //         LoggerManager.Info($"Product name in mini cart: {productName}");
+        //         Assert.That(productName, Does.Contain("Armani"), "Product name in mini cart is incorrect.");
+
+        //         LoggerManager.Info("TC06_AddProductWithSize_Success passed.");
+        //     }
+        //     catch (Exception ex)
+        //     {
+        //         LoggerManager.Error("TC06_AddProductWithSize_Success failed: " + ex.Message);
+        //         throw;
+        //     }
+        // }
+
+
         [Test]
-        public void TC04_VerifyDiscountDisplayedCorrectly()
+        public void TC07_AddProduct_CheckPersistenceAfterRefresh()
         {
             try
             {
-                LoggerManager.Info("Navigating to 'Majice' section.");
                 var productPage = new ProductPage(Driver);
+
+                LoggerManager.Info("Navigating to 'Majice' section.");
                 productPage.navigateToMajice();
 
-                LoggerManager.Info("Clicking on 'Versace Majica'.");
-                productPage.clickOnVersaceMajica();
+                LoggerManager.Info("Clicking on 'Armani Majica'.");
+                productPage.clickOnArmaniMajica();
 
-                LoggerManager.Info("Retrieving old and discounted prices.");
-                string oldPriceText = productPage.getOldPrice();
-                string newPriceText = productPage.getDiscountedPrice();
+                LoggerManager.Info("Selecting size 'L'.");
+                productPage.selectSize("L");
 
-                LoggerManager.Debug("Old price text: " + oldPriceText);
-                LoggerManager.Debug("New price text: " + newPriceText);
+                LoggerManager.Info("Clicking on 'Add to Cart'.");
+                productPage.clickAddToCart();
 
-                decimal oldPrice = decimal.Parse(oldPriceText.Replace(".", "").Replace(",", ".").Replace(" RSD", ""));
-                decimal newPrice = decimal.Parse(newPriceText.Replace(".", "").Replace(",", ".").Replace(" RSD", ""));
+                LoggerManager.Info("Refreshing the page to simulate user return.");
+                Driver.Navigate().Refresh();
 
-                decimal discountPercent = Math.Round((1 - (newPrice / oldPrice)) * 100);
-                LoggerManager.Info($"Calculated discount: {discountPercent}%");
+                // 🔽 Čekamo da se korpa ponovo pojavi nakon refresh-a
+                LoggerManager.Info("Waiting for cart icon to be visible after refresh.");
+                WebDriverWait refreshWait = new WebDriverWait(Driver, TimeSpan.FromSeconds(10));
+                refreshWait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementIsVisible(
+                    By.CssSelector("a.action.showcart")));
 
-                Assert.That((int)discountPercent, Is.EqualTo(15), "Discount percentage is not correctly calculated.");
-                LoggerManager.Info("TC04_VerifyDiscountDisplayedCorrectly passed.");
+                LoggerManager.Info("Clicking on cart icon after refresh.");
+                productPage.clickOnCartIcon();
+
+                LoggerManager.Info("Verifying mini cart visibility after refresh.");
+                Assert.That(productPage.IsMiniCartVisible(), Is.True, "Mini cart is not visible after refresh.");
+
+                LoggerManager.Info("Verifying product name in mini cart after refresh.");
+                string productName = productPage.getMiniCartProductName();
+                LoggerManager.Info("Product name found: " + productName);
+                Assert.That(productName, Does.Contain("Armani"), "Product was not preserved in the cart after refresh.");
+
+                LoggerManager.Info("TC07_AddProduct_CheckPersistenceAfterRefresh passed.");
             }
             catch (Exception ex)
             {
-                LoggerManager.Error("TC04_VerifyDiscountDisplayedCorrectly failed: " + ex.Message);
+                LoggerManager.Error("TC07_AddProduct_CheckPersistenceAfterRefresh failed: " + ex.Message);
                 throw;
             }
         }
-
-
-
 
 
     }

@@ -15,16 +15,21 @@ namespace NulTien_XYZFashionAutomation.Pages
 
         private By sizeOptions => By.CssSelector("div.swatch-attribute.size div.swatch-option");
         private By addToCartButton => By.CssSelector("button[id='product-addtocart-button']");
-        private By cartIcon => By.CssSelector("a.action.showcart");
-        private By productName = By.CssSelector("h1.product-name");
+        private By miniCartButton = By.CssSelector("a.action.showcart");
 
-        private By miniCartPanel => By.CssSelector("div.block.block-minicart");
-        private By miniCartProductName => By.CssSelector("strong.product-item-name");
+        private By productName = By.CssSelector("h1.product-name");
+        private By cartIcon = By.CssSelector("a.action.showcart");
+
+
+        private By miniCartContent = By.CssSelector("div.block.block-minicart");
+      
         private By proceedToCheckoutButton => By.CssSelector("button.checkout");
         private By productPrice => By.CssSelector("span.price");
         private By oldPrice => By.CssSelector("span.crossed.price del.crossed-price-configurable");
         private By discountedPrice => By.CssSelector("span.special-price span.price");
         private By versaceMajica = By.XPath("//img[@class='product-image-photo img-thumbnail athena-product-image-29844']");
+        private By miniCartProductName => By.CssSelector("strong.product-item-name a");
+
 
 
         public ProductPage(IWebDriver driver) : base(driver) { }
@@ -73,11 +78,11 @@ namespace NulTien_XYZFashionAutomation.Pages
             wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementToBeClickable(cartIcon)).Click();
         }
 
-        public bool isMiniCartVisible()
+        public bool IsMiniCartVisible()
         {
             try
             {
-                return wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementIsVisible(miniCartPanel)).Displayed;
+                return wait.Until(driver => driver.FindElement(miniCartContent).Displayed);
             }
             catch (WebDriverTimeoutException)
             {
@@ -85,9 +90,23 @@ namespace NulTien_XYZFashionAutomation.Pages
             }
         }
 
+
         public string getMiniCartProductName()
         {
-            return wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementIsVisible(miniCartProductName)).Text.Trim();
+            try
+            {
+                return wait.Until(driver =>
+                {
+                    var element = driver.FindElement(miniCartProductName);
+                    var text = element.Text.Trim();
+                    return !string.IsNullOrEmpty(text) ? text : null;
+                });
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Failed to get mini cart product name: " + ex.Message);
+                return "";
+            }
         }
 
         public void clickOnProceedToCheckout()
@@ -126,7 +145,7 @@ namespace NulTien_XYZFashionAutomation.Pages
 
         public void clickOnVersaceMajica()
         {
-            
+
             ((IJavaScriptExecutor)driver).ExecuteScript("window.scrollBy(0, 500);"); // možeš povećati ako treba
 
             wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementIsVisible(versaceMajica));
@@ -135,6 +154,14 @@ namespace NulTien_XYZFashionAutomation.Pages
             actions.MoveToElement(versaceMajicaElement).Click().Perform();
         }
 
+        public string GetMiniCartItemCount()
+        {
+            return driver.FindElement(miniCartCounter).Text;
+        }
+
+        private By miniCartCounter = By.CssSelector("span.counter-number");
+
+        
 
     }
 }

@@ -1,0 +1,7 @@
+2025-06-08 12:54:13.4949 INFO NulTien_XYZFashionAutomation.Utilities.LoggerManager - Starting test: TC04_VerifyDiscountDisplayedCorrectly
+2025-06-08 12:54:25.5971 INFO NulTien_XYZFashionAutomation.Utilities.LoggerManager - Navigating to 'Majice' section.
+2025-06-08 12:54:28.9391 INFO NulTien_XYZFashionAutomation.Utilities.LoggerManager - Clicking on 'Versace Majica'.
+2025-06-08 12:54:33.6228 INFO NulTien_XYZFashionAutomation.Utilities.LoggerManager - Retrieving old and discounted prices.
+2025-06-08 12:54:33.7380 INFO NulTien_XYZFashionAutomation.Utilities.LoggerManager - Calculated discount: 15%
+2025-06-08 12:54:33.7380 INFO NulTien_XYZFashionAutomation.Utilities.LoggerManager - TC04_VerifyDiscountDisplayedCorrectly passed.
+2025-06-08 12:54:33.7380 INFO NulTien_XYZFashionAutomation.Utilities.LoggerManager - Ending test: TC04_VerifyDiscountDisplayedCorrectly

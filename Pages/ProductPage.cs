@@ -24,7 +24,7 @@ namespace NulTien_XYZFashionAutomation.Pages
         private By productPrice => By.CssSelector("span.price");
         private By oldPrice => By.CssSelector("span.crossed.price del.crossed-price-configurable");
         private By discountedPrice => By.CssSelector("span.special-price span.price");
-
+        private By versaceMajica = By.XPath("//img[@class='product-image-photo img-thumbnail athena-product-image-29844']");
 
 
         public ProductPage(IWebDriver driver) : base(driver) { }
@@ -114,6 +114,27 @@ namespace NulTien_XYZFashionAutomation.Pages
         {
             return wait.Until(ExpectedConditions.ElementIsVisible(productName)).Text;
         }
+
+        public IWebElement getVersaceMajica()
+        {
+            return wait.Until(driver =>
+            {
+                var element = driver.FindElement(versaceMajica);
+                return element.Displayed ? element : null;
+            });
+        }
+
+        public void clickOnVersaceMajica()
+        {
+            
+            ((IJavaScriptExecutor)driver).ExecuteScript("window.scrollBy(0, 500);"); // možeš povećati ako treba
+
+            wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementIsVisible(versaceMajica));
+            IWebElement versaceMajicaElement = driver.FindElement(versaceMajica);
+
+            actions.MoveToElement(versaceMajicaElement).Click().Perform();
+        }
+
 
     }
 }

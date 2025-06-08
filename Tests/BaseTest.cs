@@ -6,6 +6,9 @@ using System.Threading;
 using OpenQA.Selenium.Support.Extensions;
 using System.IO;
 
+
+
+
 namespace NulTien_XYZFashionAutomation.Tests
 {
     [Parallelizable(ParallelScope.None)]
@@ -17,6 +20,8 @@ namespace NulTien_XYZFashionAutomation.Tests
         [SetUp]
         public void SetUp()
         {
+            LoggerManager.Info("Starting test: " + TestContext.CurrentContext.Test.Name);
+
             threadDriver = new ThreadLocal<IWebDriver>();
             threadDriver.Value = DriverFactory.CreateDriver();
             Driver.Manage().Window.Maximize();
@@ -37,6 +42,8 @@ namespace NulTien_XYZFashionAutomation.Tests
         [TearDown]
         public void TearDown()
         {
+            LoggerManager.Info("Ending test: " + TestContext.CurrentContext.Test.Name);
+
             var status = TestContext.CurrentContext.Result.Outcome.Status;
 
             if (status == NUnit.Framework.Interfaces.TestStatus.Failed)
@@ -57,12 +64,14 @@ namespace NulTien_XYZFashionAutomation.Tests
                 }
                 catch (Exception ex)
                 {
-                    Console.WriteLine("Screenshot capture failed: " + ex.Message);
+                    LoggerManager.Error("Screenshot capture failed: " + ex.Message);
                 }
             }
 
             Driver.Quit();
             threadDriver!.Dispose();
         }
+
+
     }
 }

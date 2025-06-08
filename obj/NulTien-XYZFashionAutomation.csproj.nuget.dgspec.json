@@ -59,6 +59,14 @@
               "target": "Package",
               "version": "[17.14.1, )"
             },
+            "NLog": {
+              "target": "Package",
+              "version": "[5.5.0, )"
+            },
+            "NLog.Config": {
+              "target": "Package",
+              "version": "[4.7.15, )"
+            },
             "NUnit": {
               "target": "Package",
               "version": "[4.3.2, )"
@@ -68,6 +76,10 @@
               "version": "[5.0.0, )"
             },
             "Selenium.Support": {
+              "target": "Package",
+              "version": "[4.33.0, )"
+            },
+            "Selenium.WebDriver": {
               "target": "Package",
               "version": "[4.33.0, )"
             },

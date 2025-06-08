@@ -3,12 +3,15 @@ using NulTien_XYZFashionAutomation.Pages;
 using System;
 using OpenQA.Selenium;
 using System.Diagnostics;
+using OpenQA.Selenium.Support.Extensions;
+
 
 namespace NulTien_XYZFashionAutomation.Tests
 {
+    
     public class ProductPageTests : BaseTest
     {
-     private ProductPage productPage = null!;
+        private ProductPage productPage = null!;
 
 
         [SetUp]
@@ -17,32 +20,32 @@ namespace NulTien_XYZFashionAutomation.Tests
             productPage = new ProductPage(Driver);
         }
 
-        // [Test]
-        // public void TC01_VerifyProductPageLoad()
-        // {
+        [Test]
+        public void TC01_VerifyProductPageLoad()
+        {
 
-        //     productPage.navigateToMajice();
-        //     productPage.clickOnArmaniMajica();
+            productPage.navigateToMajice();
+            productPage.clickOnArmaniMajica();
 
-        //     string expectedProductName = "Armani Exchange - Crvena muška majica";
-        //     string actualProductName = productPage.getProductName();
+            string expectedProductName = "Armani Exchange - Crvena muška majica";
+            string actualProductName = productPage.getProductName();
 
-        //     Assert.That(actualProductName, Is.EqualTo(expectedProductName), "Displayed product name does not match expected.");
+            Assert.That(actualProductName, Is.EqualTo(expectedProductName), "Displayed product name does not match expected.");
 
-        // }
+        }
 
-        //  [Test]
-        // public void TC02_ProductLoadTimeUnder3Seconds()
-        // {
-        //     productPage!.navigateToMajice();
-        //     var stopwatch = Stopwatch.StartNew();
-        //     productPage.clickOnArmaniMajica();
-        //     stopwatch.Stop();
-        //     double loadTime = stopwatch.Elapsed.TotalSeconds;
+         [Test]
+        public void TC02_ProductLoadTimeUnder3Seconds()
+        {
+            productPage!.navigateToMajice();
+            var stopwatch = Stopwatch.StartNew();
+            productPage.clickOnArmaniMajica();
+            stopwatch.Stop();
+            double loadTime = stopwatch.Elapsed.TotalSeconds;
 
-        //     Assert.That(loadTime, Is.LessThanOrEqualTo(3),
-        //         $"Product page took too long to load: {loadTime:F2} seconds.");
-        // }
+            Assert.That(loadTime, Is.LessThanOrEqualTo(3),
+                $"Product page took too long to load: {loadTime:F2} seconds.");
+        }
 
 
 
@@ -55,7 +58,7 @@ namespace NulTien_XYZFashionAutomation.Tests
             string actualPrice = productPage.getProductPrice();
             string expectedPrice = "5.390,00 RSD";
 
-           Assert.That(actualPrice, Is.EqualTo(expectedPrice), "The displayed product price is incorrect.");
+            Assert.That(actualPrice, Is.EqualTo(expectedPrice), "The displayed product price is incorrect.");
 
         }
 

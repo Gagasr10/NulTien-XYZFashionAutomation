@@ -3,6 +3,7 @@ C:\Users\Admin\NulTien-XYZFashionAutomation\bin\Debug\net8.0\testhost.exe
 C:\Users\Admin\NulTien-XYZFashionAutomation\bin\Debug\net8.0\selenium-manager\linux\selenium-manager
 C:\Users\Admin\NulTien-XYZFashionAutomation\bin\Debug\net8.0\selenium-manager\macos\selenium-manager
 C:\Users\Admin\NulTien-XYZFashionAutomation\bin\Debug\net8.0\selenium-manager\windows\selenium-manager.exe
+C:\Users\Admin\NulTien-XYZFashionAutomation\bin\Debug\net8.0\NLog.config
 C:\Users\Admin\NulTien-XYZFashionAutomation\bin\Debug\net8.0\NUnit3.TestAdapter.pdb
 C:\Users\Admin\NulTien-XYZFashionAutomation\bin\Debug\net8.0\nunit.engine.dll
 C:\Users\Admin\NulTien-XYZFashionAutomation\bin\Debug\net8.0\nunit.engine.api.dll
@@ -38,6 +39,7 @@ C:\Users\Admin\NulTien-XYZFashionAutomation\bin\Debug\net8.0\Microsoft.TestPlatf
 C:\Users\Admin\NulTien-XYZFashionAutomation\bin\Debug\net8.0\Microsoft.TestPlatform.Utilities.dll
 C:\Users\Admin\NulTien-XYZFashionAutomation\bin\Debug\net8.0\Microsoft.VisualStudio.TestPlatform.Common.dll
 C:\Users\Admin\NulTien-XYZFashionAutomation\bin\Debug\net8.0\Newtonsoft.Json.dll
+C:\Users\Admin\NulTien-XYZFashionAutomation\bin\Debug\net8.0\NLog.dll
 C:\Users\Admin\NulTien-XYZFashionAutomation\bin\Debug\net8.0\nunit.framework.dll
 C:\Users\Admin\NulTien-XYZFashionAutomation\bin\Debug\net8.0\nunit.framework.legacy.dll
 C:\Users\Admin\NulTien-XYZFashionAutomation\bin\Debug\net8.0\WebDriver.Support.dll

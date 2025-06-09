@@ -1,14 +1,19 @@
-2025-06-09 10:44:44.2474 INFO NulTien_XYZFashionAutomation.Utilities.LoggerManager - Starting test: TC08_RemoveProductFromCart
-2025-06-09 10:45:04.5443 INFO NulTien_XYZFashionAutomation.Utilities.LoggerManager - Navigating to 'Majice' section.
-2025-06-09 10:45:10.5854 INFO NulTien_XYZFashionAutomation.Utilities.LoggerManager - Clicking on 'Armani Majica'.
-2025-06-09 10:45:13.4008 INFO NulTien_XYZFashionAutomation.Utilities.LoggerManager - Selecting size 'L'.
-2025-06-09 10:45:13.5614 INFO NulTien_XYZFashionAutomation.Utilities.LoggerManager - Clicking on 'Add to Cart'.
-2025-06-09 10:45:13.8416 INFO NulTien_XYZFashionAutomation.Utilities.LoggerManager - Clicking on cart icon.
-2025-06-09 10:45:13.9516 INFO NulTien_XYZFashionAutomation.Utilities.LoggerManager - Verifying mini cart visibility.
-2025-06-09 10:45:14.4982 INFO NulTien_XYZFashionAutomation.Utilities.LoggerManager - Removing product from mini cart.
-2025-06-09 10:45:14.5978 INFO NulTien_XYZFashionAutomation.Utilities.LoggerManager - Refreshing page to ensure cart overlay is cleared.
-2025-06-09 10:45:15.7850 INFO NulTien_XYZFashionAutomation.Utilities.LoggerManager - Clicking on cart icon to verify cart status.
-2025-06-09 10:45:15.8744 INFO NulTien_XYZFashionAutomation.Utilities.LoggerManager - Waiting for empty cart message to be visible.
-2025-06-09 10:45:16.9614 INFO NulTien_XYZFashionAutomation.Utilities.LoggerManager - Empty cart message: 'Nemate proizvoda u vašoj korpi za kupovinu.'
-2025-06-09 10:45:16.9614 INFO NulTien_XYZFashionAutomation.Utilities.LoggerManager - TC08_RemoveProductFromCart passed.
-2025-06-09 10:45:16.9614 INFO NulTien_XYZFashionAutomation.Utilities.LoggerManager - Ending test: TC08_RemoveProductFromCart
+2025-06-09 18:28:03.6777 INFO NulTien_XYZFashionAutomation.Utilities.LoggerManager - Starting test: TC13_FilterByColor_Teget
+2025-06-09 18:28:14.9393 INFO NulTien_XYZFashionAutomation.Utilities.LoggerManager - Starting test: TC13_FilterByColor_Teget
+2025-06-09 18:28:14.9393 INFO NulTien_XYZFashionAutomation.Utilities.LoggerManager - Navigating to 'Majice' section.
+2025-06-09 18:28:19.4376 INFO NulTien_XYZFashionAutomation.Utilities.LoggerManager - Clicking on filter 'Boja'.
+2025-06-09 18:28:19.4376 INFO NulTien_XYZFashionAutomation.Utilities.LoggerManager - Clicking on filter 'Boja'.
+2025-06-09 18:28:20.6611 INFO NulTien_XYZFashionAutomation.Utilities.LoggerManager - Selecting 'Teget' color.
+2025-06-09 18:28:20.6611 INFO NulTien_XYZFashionAutomation.Utilities.LoggerManager - Selecting 'Teget' color.
+2025-06-09 18:28:21.2468 INFO NulTien_XYZFashionAutomation.Utilities.LoggerManager - Waiting for product images to be visible after filter is applied.
+2025-06-09 18:28:21.2468 INFO NulTien_XYZFashionAutomation.Utilities.LoggerManager - Waiting for product grid to refresh after filter.
+2025-06-09 18:28:22.7874 INFO NulTien_XYZFashionAutomation.Utilities.LoggerManager - Validating all products displayed match selected color: Teget.
+2025-06-09 18:28:22.7874 INFO NulTien_XYZFashionAutomation.Utilities.LoggerManager - Collecting all visible product image alt texts.
+2025-06-09 18:28:23.0651 INFO NulTien_XYZFashionAutomation.Utilities.LoggerManager - Checking alt text: JOOP! - Muška majica sa printom
+2025-06-09 18:28:23.1054 ERROR NulTien_XYZFashionAutomation.Utilities.LoggerManager - TC13_FilterByColor_Teget failed:   Product alt text does not indicate 'Teget' color: JOOP! - Muška majica sa printom
+Assert.That(alt.ToLower(), Does.Contain("teget").Or.Contain("plava"))
+  Expected: String containing "teget" or String containing "plava"
+  But was:  "joop! - muška majica sa printom"
+
+2025-06-09 18:28:23.1054 INFO NulTien_XYZFashionAutomation.Utilities.LoggerManager - Ending test: TC13_FilterByColor_Teget
+2025-06-09 18:28:23.1054 INFO NulTien_XYZFashionAutomation.Utilities.LoggerManager - Ending test: TC13_FilterByColor_Teget

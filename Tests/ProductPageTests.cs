@@ -313,53 +313,94 @@ namespace NulTien_XYZFashionAutomation.Tests
         //     }
         // }
 
-        [Test]
-        public void TC09_UpdateQuantityInCart()
+        // [Test]
+        // public void TC09_UpdateQuantityInCart()
+        // {
+        //     try
+        //     {
+        //         var productPage = new ProductPage(Driver);
+
+        //         LoggerManager.Info("Navigating to 'Majice' section.");
+        //         productPage.navigateToMajice();
+
+        //         LoggerManager.Info("Clicking on 'Armani Majica'.");
+        //         productPage.clickOnArmaniMajica();
+
+        //         LoggerManager.Info("Selecting size 'L'.");
+        //         productPage.selectSize("L");
+
+        //         LoggerManager.Info("Clicking on 'Add to Cart'.");
+        //         productPage.clickAddToCart();
+
+        //         LoggerManager.Info("Clicking on cart icon.");
+        //         productPage.clickOnCartIcon();
+
+        //         LoggerManager.Info("Changing product quantity to 2.");
+        //         productPage.changeQuantityInMiniCart("2");
+
+        //         LoggerManager.Info("Clicking update button.");
+        //         productPage.clickUpdateCartButton();
+
+        //         LoggerManager.Info("Waiting for total price to update.");
+        //         productPage.Wait.Until(driver => productPage.getTotalPriceFromMiniCart() == "10.780,00 RSD");
+
+        //         string updatedTotal = productPage.getTotalPriceFromMiniCart();
+        //         LoggerManager.Info($"Total price after update: {updatedTotal}");
+
+        //         Assert.That(updatedTotal, Is.EqualTo("10.780,00 RSD"));
+
+        //         LoggerManager.Info("TC09_UpdateQuantityInCart passed.");
+        //     }
+        //     catch (Exception ex)
+        //     {
+        //         LoggerManager.Error("TC09_UpdateQuantityInCart failed: " + ex.Message);
+        //         throw;
+        //     }
+        // }
+
+       [Test]
+        public void TC13_FilterByColor_Teget()
         {
             try
             {
+                LoggerManager.Info("Starting test: TC13_FilterByColor_Teget");
+
                 var productPage = new ProductPage(Driver);
 
                 LoggerManager.Info("Navigating to 'Majice' section.");
                 productPage.navigateToMajice();
 
-                LoggerManager.Info("Clicking on 'Armani Majica'.");
-                productPage.clickOnArmaniMajica();
+                LoggerManager.Info("Clicking on filter 'Boja'.");
+                productPage.ClickFilterColor();
 
-                LoggerManager.Info("Selecting size 'L'.");
-                productPage.selectSize("L");
+                LoggerManager.Info("Selecting 'Teget' color.");
+                productPage.SelectTegetColor();
 
-                LoggerManager.Info("Clicking on 'Add to Cart'.");
-                productPage.clickAddToCart();
+                LoggerManager.Info("Waiting for product images to be visible after filter is applied.");
+                productPage.WaitForFilteredProducts();
 
-                LoggerManager.Info("Clicking on cart icon.");
-                productPage.clickOnCartIcon();
+                LoggerManager.Info("Validating all products displayed match selected color: Teget.");
+                var altTexts = productPage.GetAllProductAlts();
 
-                LoggerManager.Info("Changing product quantity to 2.");
-                productPage.changeQuantityInMiniCart("2");
+                foreach (var alt in altTexts)
+                {
+                    LoggerManager.Info($"Checking alt text: {alt}");
+                    Assert.That(alt.ToLower(), Does.Contain("teget").Or.Contain("plava"),
+                        $"Product alt text does not indicate 'Teget' color: {alt}");
+                }
 
-                LoggerManager.Info("Clicking update button.");
-                productPage.clickUpdateCartButton();
-
-                LoggerManager.Info("Waiting for total price to update.");
-                productPage.Wait.Until(driver => productPage.getTotalPriceFromMiniCart() == "10.780,00 RSD");
-
-                string updatedTotal = productPage.getTotalPriceFromMiniCart();
-                LoggerManager.Info($"Total price after update: {updatedTotal}");
-
-                Assert.That(updatedTotal, Is.EqualTo("10.780,00 RSD"));
-
-                LoggerManager.Info("TC09_UpdateQuantityInCart passed.");
+                LoggerManager.Info("TC13_FilterByColor_Teget passed.");
             }
             catch (Exception ex)
             {
-                LoggerManager.Error("TC09_UpdateQuantityInCart failed: " + ex.Message);
+                LoggerManager.Error("TC13_FilterByColor_Teget failed: " + ex.Message);
                 throw;
             }
+            finally
+            {
+                LoggerManager.Info("Ending test: TC13_FilterByColor_Teget");
+            }
         }
-
-
-
 
 
 

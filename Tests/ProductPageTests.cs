@@ -259,9 +259,62 @@ namespace NulTien_XYZFashionAutomation.Tests
         // }
 
 
-       
+
+        // [Test]
+        // public void TC08_RemoveProductFromCart()
+        // {
+        //     try
+        //     {
+        //         var productPage = new ProductPage(Driver);
+
+        //         LoggerManager.Info("Navigating to 'Majice' section.");
+        //         productPage.navigateToMajice();
+
+        //         LoggerManager.Info("Clicking on 'Armani Majica'.");
+        //         productPage.clickOnArmaniMajica();
+
+        //         LoggerManager.Info("Selecting size 'L'.");
+        //         productPage.selectSize("L");
+
+        //         LoggerManager.Info("Clicking on 'Add to Cart'.");
+        //         productPage.clickAddToCart();
+
+        //         LoggerManager.Info("Clicking on cart icon.");
+        //         productPage.clickOnCartIcon();
+
+        //         LoggerManager.Info("Verifying mini cart visibility.");
+        //         Assert.That(productPage.IsMiniCartVisible(), Is.True);
+
+        //         LoggerManager.Info("Removing product from mini cart.");
+        //         productPage.removeProductFromMiniCart();
+
+        //         LoggerManager.Info("Refreshing page to ensure cart overlay is cleared.");
+        //         Driver.Navigate().Refresh();
+
+        //         productPage.Wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementToBeClickable(By.CssSelector("a.action.showcart")));
+
+        //         LoggerManager.Info("Clicking on cart icon to verify cart status.");
+        //         productPage.clickOnCartIcon();
+
+        //         LoggerManager.Info("Waiting for empty cart message to be visible.");
+        //         productPage.Wait.Until(driver => driver.FindElement(By.CssSelector("strong.subtitle.empty")).Displayed);
+
+        //         string emptyMessage = productPage.GetEmptyCartMessage();
+        //         LoggerManager.Info($"Empty cart message: '{emptyMessage}'");
+
+        //         Assert.That(emptyMessage, Is.EqualTo("Nemate proizvoda u vašoj korpi za kupovinu."));
+
+        //         LoggerManager.Info("TC08_RemoveProductFromCart passed.");
+        //     }
+        //     catch (Exception ex)
+        //     {
+        //         LoggerManager.Error("TC08_RemoveProductFromCart failed: " + ex.Message);
+        //         throw;
+        //     }
+        // }
+
         [Test]
-        public void TC08_RemoveProductFromCart()
+        public void TC09_UpdateQuantityInCart()
         {
             try
             {
@@ -282,36 +335,32 @@ namespace NulTien_XYZFashionAutomation.Tests
                 LoggerManager.Info("Clicking on cart icon.");
                 productPage.clickOnCartIcon();
 
-                LoggerManager.Info("Verifying mini cart visibility.");
-                Assert.That(productPage.IsMiniCartVisible(), Is.True);
+                LoggerManager.Info("Changing product quantity to 2.");
+                productPage.changeQuantityInMiniCart("2");
 
-                LoggerManager.Info("Removing product from mini cart.");
-                productPage.removeProductFromMiniCart();
+                LoggerManager.Info("Clicking update button.");
+                productPage.clickUpdateCartButton();
 
-                LoggerManager.Info("Refreshing page to ensure cart overlay is cleared.");
-                Driver.Navigate().Refresh();
+                LoggerManager.Info("Waiting for total price to update.");
+                productPage.Wait.Until(driver => productPage.getTotalPriceFromMiniCart() == "10.780,00 RSD");
 
-                productPage.Wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementToBeClickable(By.CssSelector("a.action.showcart")));
+                string updatedTotal = productPage.getTotalPriceFromMiniCart();
+                LoggerManager.Info($"Total price after update: {updatedTotal}");
 
-                LoggerManager.Info("Clicking on cart icon to verify cart status.");
-                productPage.clickOnCartIcon();
+                Assert.That(updatedTotal, Is.EqualTo("10.780,00 RSD"));
 
-                LoggerManager.Info("Waiting for empty cart message to be visible.");
-                productPage.Wait.Until(driver => driver.FindElement(By.CssSelector("strong.subtitle.empty")).Displayed);
-
-                string emptyMessage = productPage.GetEmptyCartMessage();
-                LoggerManager.Info($"Empty cart message: '{emptyMessage}'");
-
-                Assert.That(emptyMessage, Is.EqualTo("Nemate proizvoda u vašoj korpi za kupovinu."));
-
-                LoggerManager.Info("TC08_RemoveProductFromCart passed.");
+                LoggerManager.Info("TC09_UpdateQuantityInCart passed.");
             }
             catch (Exception ex)
             {
-                LoggerManager.Error("TC08_RemoveProductFromCart failed: " + ex.Message);
+                LoggerManager.Error("TC09_UpdateQuantityInCart failed: " + ex.Message);
                 throw;
             }
         }
+
+
+
+
 
 
     }

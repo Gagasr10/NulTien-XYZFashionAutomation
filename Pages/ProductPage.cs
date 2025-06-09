@@ -33,6 +33,10 @@ namespace NulTien_XYZFashionAutomation.Pages
         private By removeIcon => By.CssSelector("a.action.delete");
         private By confirmRemoveButton => By.CssSelector("button.action-accept");
         private By emptyCartMessage => By.CssSelector("strong.subtitle.empty");
+        private By quantityInput => By.CssSelector("input.item-qty.cart-item-qty");
+        private By totalPrice => By.CssSelector("span.price-wrapper > span.price");
+        private By updateQuantityButton => By.CssSelector("button.update-cart-item");
+
 
 
 
@@ -182,6 +186,26 @@ namespace NulTien_XYZFashionAutomation.Pages
         public string GetEmptyCartMessage()
         {
             return wait.Until(driver => driver.FindElement(emptyCartMessage)).Text.Trim();
+        }
+
+        public void changeQuantityInMiniCart(string quantity)
+        {
+            var qtyInput = wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementIsVisible(quantityInput));
+            ((IJavaScriptExecutor)driver).ExecuteScript("arguments[0].scrollIntoView(true);", qtyInput);
+            qtyInput.Click();
+            qtyInput.SendKeys(Keys.Control + "a");
+            qtyInput.SendKeys(Keys.Backspace);
+            qtyInput.SendKeys(quantity);
+        }
+
+        public string getTotalPriceFromMiniCart()
+        {
+            return wait.Until(driver => driver.FindElement(totalPrice)).Text.Trim();
+        }
+
+        public void clickUpdateCartButton()
+        {
+            wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementToBeClickable(updateQuantityButton)).Click();
         }
 
 

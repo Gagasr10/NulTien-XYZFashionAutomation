@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("NulTien-XYZFashionAutomation")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+62c7316a18da12fea4c867439cb8eef8c00a5700")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+dbee239fdab081e0513163babbb6eae8b874f0db")]
 [assembly: System.Reflection.AssemblyProductAttribute("NulTien-XYZFashionAutomation")]
 [assembly: System.Reflection.AssemblyTitleAttribute("NulTien-XYZFashionAutomation")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

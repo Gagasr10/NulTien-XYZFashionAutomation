@@ -12,7 +12,7 @@ using SeleniumExtras.WaitHelpers;
 
 namespace NulTien_XYZFashionAutomation.Tests
 {
-    
+
     public class ProductPageTests : BaseTest
     {
         private ProductPage productPage = null!;
@@ -210,8 +210,58 @@ namespace NulTien_XYZFashionAutomation.Tests
         // }
 
 
+        // [Test]
+        // public void TC07_AddProduct_CheckPersistenceAfterRefresh()
+        // {
+        //     try
+        //     {
+        //         var productPage = new ProductPage(Driver);
+
+        //         LoggerManager.Info("Navigating to 'Majice' section.");
+        //         productPage.navigateToMajice();
+
+        //         LoggerManager.Info("Clicking on 'Armani Majica'.");
+        //         productPage.clickOnArmaniMajica();
+
+        //         LoggerManager.Info("Selecting size 'L'.");
+        //         productPage.selectSize("L");
+
+        //         LoggerManager.Info("Clicking on 'Add to Cart'.");
+        //         productPage.clickAddToCart();
+
+        //         LoggerManager.Info("Refreshing the page to simulate user return.");
+        //         Driver.Navigate().Refresh();
+
+        //         //  Čekamo da se korpa ponovo pojavi nakon refresh-a
+        //         LoggerManager.Info("Waiting for cart icon to be visible after refresh.");
+        //         WebDriverWait refreshWait = new WebDriverWait(Driver, TimeSpan.FromSeconds(10));
+        //         refreshWait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementIsVisible(
+        //             By.CssSelector("a.action.showcart")));
+
+        //         LoggerManager.Info("Clicking on cart icon after refresh.");
+        //         productPage.clickOnCartIcon();
+
+        //         LoggerManager.Info("Verifying mini cart visibility after refresh.");
+        //         Assert.That(productPage.IsMiniCartVisible(), Is.True, "Mini cart is not visible after refresh.");
+
+        //         LoggerManager.Info("Verifying product name in mini cart after refresh.");
+        //         string productName = productPage.getMiniCartProductName();
+        //         LoggerManager.Info("Product name found: " + productName);
+        //         Assert.That(productName, Does.Contain("Armani"), "Product was not preserved in the cart after refresh.");
+
+        //         LoggerManager.Info("TC07_AddProduct_CheckPersistenceAfterRefresh passed.");
+        //     }
+        //     catch (Exception ex)
+        //     {
+        //         LoggerManager.Error("TC07_AddProduct_CheckPersistenceAfterRefresh failed: " + ex.Message);
+        //         throw;
+        //     }
+        // }
+
+
+       
         [Test]
-        public void TC07_AddProduct_CheckPersistenceAfterRefresh()
+        public void TC08_RemoveProductFromCart()
         {
             try
             {
@@ -229,31 +279,36 @@ namespace NulTien_XYZFashionAutomation.Tests
                 LoggerManager.Info("Clicking on 'Add to Cart'.");
                 productPage.clickAddToCart();
 
-                LoggerManager.Info("Refreshing the page to simulate user return.");
-                Driver.Navigate().Refresh();
-
-                // 🔽 Čekamo da se korpa ponovo pojavi nakon refresh-a
-                LoggerManager.Info("Waiting for cart icon to be visible after refresh.");
-                WebDriverWait refreshWait = new WebDriverWait(Driver, TimeSpan.FromSeconds(10));
-                refreshWait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementIsVisible(
-                    By.CssSelector("a.action.showcart")));
-
-                LoggerManager.Info("Clicking on cart icon after refresh.");
+                LoggerManager.Info("Clicking on cart icon.");
                 productPage.clickOnCartIcon();
 
-                LoggerManager.Info("Verifying mini cart visibility after refresh.");
-                Assert.That(productPage.IsMiniCartVisible(), Is.True, "Mini cart is not visible after refresh.");
+                LoggerManager.Info("Verifying mini cart visibility.");
+                Assert.That(productPage.IsMiniCartVisible(), Is.True);
 
-                LoggerManager.Info("Verifying product name in mini cart after refresh.");
-                string productName = productPage.getMiniCartProductName();
-                LoggerManager.Info("Product name found: " + productName);
-                Assert.That(productName, Does.Contain("Armani"), "Product was not preserved in the cart after refresh.");
+                LoggerManager.Info("Removing product from mini cart.");
+                productPage.removeProductFromMiniCart();
 
-                LoggerManager.Info("TC07_AddProduct_CheckPersistenceAfterRefresh passed.");
+                LoggerManager.Info("Refreshing page to ensure cart overlay is cleared.");
+                Driver.Navigate().Refresh();
+
+                productPage.Wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementToBeClickable(By.CssSelector("a.action.showcart")));
+
+                LoggerManager.Info("Clicking on cart icon to verify cart status.");
+                productPage.clickOnCartIcon();
+
+                LoggerManager.Info("Waiting for empty cart message to be visible.");
+                productPage.Wait.Until(driver => driver.FindElement(By.CssSelector("strong.subtitle.empty")).Displayed);
+
+                string emptyMessage = productPage.GetEmptyCartMessage();
+                LoggerManager.Info($"Empty cart message: '{emptyMessage}'");
+
+                Assert.That(emptyMessage, Is.EqualTo("Nemate proizvoda u vašoj korpi za kupovinu."));
+
+                LoggerManager.Info("TC08_RemoveProductFromCart passed.");
             }
             catch (Exception ex)
             {
-                LoggerManager.Error("TC07_AddProduct_CheckPersistenceAfterRefresh failed: " + ex.Message);
+                LoggerManager.Error("TC08_RemoveProductFromCart failed: " + ex.Message);
                 throw;
             }
         }

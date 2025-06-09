@@ -20,15 +20,20 @@ namespace NulTien_XYZFashionAutomation.Pages
         private By productName = By.CssSelector("h1.product-name");
         private By cartIcon = By.CssSelector("a.action.showcart");
 
-
         private By miniCartContent = By.CssSelector("div.block.block-minicart");
-      
+
         private By proceedToCheckoutButton => By.CssSelector("button.checkout");
         private By productPrice => By.CssSelector("span.price");
         private By oldPrice => By.CssSelector("span.crossed.price del.crossed-price-configurable");
         private By discountedPrice => By.CssSelector("span.special-price span.price");
         private By versaceMajica = By.XPath("//img[@class='product-image-photo img-thumbnail athena-product-image-29844']");
+        private By miniCartCounter = By.CssSelector("span.counter-number");
         private By miniCartProductName => By.CssSelector("strong.product-item-name a");
+        private By productNameInMiniCart => By.CssSelector("strong.product-item-name a");
+        private By removeIcon => By.CssSelector("a.action.delete");
+        private By confirmRemoveButton => By.CssSelector("button.action-accept");
+        private By emptyCartMessage => By.CssSelector("strong.subtitle.empty");
+
 
 
 
@@ -146,7 +151,7 @@ namespace NulTien_XYZFashionAutomation.Pages
         public void clickOnVersaceMajica()
         {
 
-            ((IJavaScriptExecutor)driver).ExecuteScript("window.scrollBy(0, 500);"); // možeš povećati ako treba
+            ((IJavaScriptExecutor)driver).ExecuteScript("window.scrollBy(0, 500);");
 
             wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementIsVisible(versaceMajica));
             IWebElement versaceMajicaElement = driver.FindElement(versaceMajica);
@@ -159,9 +164,26 @@ namespace NulTien_XYZFashionAutomation.Pages
             return driver.FindElement(miniCartCounter).Text;
         }
 
-        private By miniCartCounter = By.CssSelector("span.counter-number");
 
-        
+
+        public void removeProductFromMiniCart()
+        {
+            var productElement = wait.Until(driver => driver.FindElement(productNameInMiniCart));
+            ((IJavaScriptExecutor)driver).ExecuteScript("arguments[0].scrollIntoView(true);", productElement);
+
+            var removeBtn = wait.Until(driver => driver.FindElement(removeIcon));
+            ((IJavaScriptExecutor)driver).ExecuteScript("arguments[0].click();", removeBtn);
+
+            var confirmBtn = wait.Until(driver => driver.FindElement(confirmRemoveButton));
+            ((IJavaScriptExecutor)driver).ExecuteScript("arguments[0].click();", confirmBtn);
+        }
+
+
+        public string GetEmptyCartMessage()
+        {
+            return wait.Until(driver => driver.FindElement(emptyCartMessage)).Text.Trim();
+        }
+
 
     }
 }

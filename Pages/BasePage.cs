@@ -39,6 +39,8 @@ namespace NulTien_XYZFashionAutomation.Pages
             }
         }
 
+        public WebDriverWait Wait => wait;
+
 
 
 

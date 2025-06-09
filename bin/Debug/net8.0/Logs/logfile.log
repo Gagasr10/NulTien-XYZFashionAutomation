@@ -1,19 +1,14 @@
-2025-06-08 21:30:34.8454 INFO NulTien_XYZFashionAutomation.Utilities.LoggerManager - Starting test: TC07_AddProduct_CheckPersistenceAfterRefresh
-2025-06-08 21:30:49.1716 INFO NulTien_XYZFashionAutomation.Utilities.LoggerManager - Navigating to 'Majice' section.
-2025-06-08 21:30:52.0031 INFO NulTien_XYZFashionAutomation.Utilities.LoggerManager - Clicking on 'Armani Majica'.
-2025-06-08 21:30:52.0320 ERROR NulTien_XYZFashionAutomation.Utilities.LoggerManager - TC07_AddProduct_CheckPersistenceAfterRefresh failed: no such element: Unable to locate element: {"method":"xpath","selector":"//img[contains(@class, 'athena-product-image-29929')]"}
-  (Session info: chrome=137.0.7151.69); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
-2025-06-08 21:30:52.0456 INFO NulTien_XYZFashionAutomation.Utilities.LoggerManager - Ending test: TC07_AddProduct_CheckPersistenceAfterRefresh
-2025-06-08 21:38:32.1378 INFO NulTien_XYZFashionAutomation.Utilities.LoggerManager - Starting test: TC07_AddProduct_CheckPersistenceAfterRefresh
-2025-06-08 21:38:48.5443 INFO NulTien_XYZFashionAutomation.Utilities.LoggerManager - Navigating to 'Majice' section.
-2025-06-08 21:38:52.5300 INFO NulTien_XYZFashionAutomation.Utilities.LoggerManager - Clicking on 'Armani Majica'.
-2025-06-08 21:38:55.0694 INFO NulTien_XYZFashionAutomation.Utilities.LoggerManager - Selecting size 'L'.
-2025-06-08 21:38:55.3865 INFO NulTien_XYZFashionAutomation.Utilities.LoggerManager - Clicking on 'Add to Cart'.
-2025-06-08 21:38:55.6693 INFO NulTien_XYZFashionAutomation.Utilities.LoggerManager - Refreshing the page to simulate user return.
-2025-06-08 21:38:57.0605 INFO NulTien_XYZFashionAutomation.Utilities.LoggerManager - Waiting for cart icon to be visible after refresh.
-2025-06-08 21:38:57.1979 INFO NulTien_XYZFashionAutomation.Utilities.LoggerManager - Clicking on cart icon after refresh.
-2025-06-08 21:38:57.4045 INFO NulTien_XYZFashionAutomation.Utilities.LoggerManager - Verifying mini cart visibility after refresh.
-2025-06-08 21:38:57.4552 INFO NulTien_XYZFashionAutomation.Utilities.LoggerManager - Verifying product name in mini cart after refresh.
-2025-06-08 21:38:57.4911 INFO NulTien_XYZFashionAutomation.Utilities.LoggerManager - Product name found: Armani Exchange - Crvena muška majica
-2025-06-08 21:38:57.4911 INFO NulTien_XYZFashionAutomation.Utilities.LoggerManager - TC07_AddProduct_CheckPersistenceAfterRefresh passed.
-2025-06-08 21:38:57.4911 INFO NulTien_XYZFashionAutomation.Utilities.LoggerManager - Ending test: TC07_AddProduct_CheckPersistenceAfterRefresh
+2025-06-09 10:44:44.2474 INFO NulTien_XYZFashionAutomation.Utilities.LoggerManager - Starting test: TC08_RemoveProductFromCart
+2025-06-09 10:45:04.5443 INFO NulTien_XYZFashionAutomation.Utilities.LoggerManager - Navigating to 'Majice' section.
+2025-06-09 10:45:10.5854 INFO NulTien_XYZFashionAutomation.Utilities.LoggerManager - Clicking on 'Armani Majica'.
+2025-06-09 10:45:13.4008 INFO NulTien_XYZFashionAutomation.Utilities.LoggerManager - Selecting size 'L'.
+2025-06-09 10:45:13.5614 INFO NulTien_XYZFashionAutomation.Utilities.LoggerManager - Clicking on 'Add to Cart'.
+2025-06-09 10:45:13.8416 INFO NulTien_XYZFashionAutomation.Utilities.LoggerManager - Clicking on cart icon.
+2025-06-09 10:45:13.9516 INFO NulTien_XYZFashionAutomation.Utilities.LoggerManager - Verifying mini cart visibility.
+2025-06-09 10:45:14.4982 INFO NulTien_XYZFashionAutomation.Utilities.LoggerManager - Removing product from mini cart.
+2025-06-09 10:45:14.5978 INFO NulTien_XYZFashionAutomation.Utilities.LoggerManager - Refreshing page to ensure cart overlay is cleared.
+2025-06-09 10:45:15.7850 INFO NulTien_XYZFashionAutomation.Utilities.LoggerManager - Clicking on cart icon to verify cart status.
+2025-06-09 10:45:15.8744 INFO NulTien_XYZFashionAutomation.Utilities.LoggerManager - Waiting for empty cart message to be visible.
+2025-06-09 10:45:16.9614 INFO NulTien_XYZFashionAutomation.Utilities.LoggerManager - Empty cart message: 'Nemate proizvoda u vašoj korpi za kupovinu.'
+2025-06-09 10:45:16.9614 INFO NulTien_XYZFashionAutomation.Utilities.LoggerManager - TC08_RemoveProductFromCart passed.
+2025-06-09 10:45:16.9614 INFO NulTien_XYZFashionAutomation.Utilities.LoggerManager - Ending test: TC08_RemoveProductFromCart

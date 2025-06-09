@@ -1,0 +1,37 @@
+# === Build folders ===
+bin/
+obj/
+
+# === Logs and temporary files ===
+*.log
+*.tmp
+*.pdb
+*.cache
+*.sourcelink.json
+
+# === User-specific settings ===
+*.user
+*.suo
+.vscode/
+.idea/
+
+# === Test output ===
+TestResults/
+*.trx
+*.coverage
+*.coveragexml
+
+# === NuGet packages ===
+packages/
+*.nupkg
+*.snupkg
+project.lock.json
+project.fragment.lock.json
+
+# === Screenshots (optional: uncomment if you want to ignore them) ===
+# Screenshots/
+
+# === OS-specific files ===
+.DS_Store
+Thumbs.db
+desktop.ini

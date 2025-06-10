@@ -5,6 +5,8 @@ using NulTien_XYZFashionAutomation.Utilities;
 namespace NulTien_XYZFashionAutomation.Tests
 {
     [TestFixture]
+    // [Parallelizable(ParallelScope.All)]
+
     public class SearchPageTests : BaseTest
     {
         //    [Test]

@@ -4,149 +4,106 @@ using NulTien_XYZFashionAutomation.Utilities;
 
 namespace NulTien_XYZFashionAutomation.Tests
 {
-    [TestFixture]
+     [TestFixture]
+    // [Parallelizable(ParallelScope.All)]
     public class ShippingPageTests : BaseTest
     {
 
-        // public void TC14_ShippingForm_RequiredFieldsValidation()
-        // {
-        //     try
-        //     {
-        //         var loginPage = new LoginPage(Driver);
-        //         loginPage.OpenLoginForm();
-        //         loginPage.Login("wagas44949@adrewire.com", "JohnEng0");
+        public void TC14_ShippingForm_RequiredFieldsValidation()
+        {
+            try
+            {
+                var loginPage = new LoginPage(Driver);
+                loginPage.OpenLoginForm();
+                loginPage.Login("wagas44949@adrewire.com", "JohnEng0");
 
-        //         var productPage = new ProductPage(Driver);
-        //         LoggerManager.Info("Navigating to 'Majice' section.");
-        //         productPage.navigateToMajice();
-        //         productPage.clickOnArmaniMajica();
-        //         productPage.selectSize("L");
-        //         productPage.clickAddToCart();
-        //         productPage.clickOnCartIcon();
-        //         productPage.clickOnProceedToCheckout();
+                var productPage = new ProductPage(Driver);
+                LoggerManager.Info("Navigating to 'Majice' section.");
+                productPage.navigateToMajice();
+                productPage.clickOnArmaniMajica();
+                productPage.selectSize("L");
+                productPage.clickAddToCart();
+                productPage.clickOnCartIcon();
+                productPage.clickOnProceedToCheckout();
 
-        //         var shippingPage = new ShippingPage(Driver);
+                var shippingPage = new ShippingPage(Driver);
 
-        //         LoggerManager.Info("Waiting for shipping form to be ready.");
-        //         shippingPage.WaitUntilShippingFormIsReady();
+                LoggerManager.Info("Waiting for shipping form to be ready.");
+                shippingPage.WaitUntilShippingFormIsReady();
 
-        //         shippingPage.ClickNextButton();
-        //         shippingPage.WaitForErrorMessagesToAppear();
+                shippingPage.ClickNextButton();
+                shippingPage.WaitForErrorMessagesToAppear();
 
-        //         LoggerManager.Info("Verifying that required field error messages are displayed.");
+                LoggerManager.Info("Verifying that required field error messages are displayed.");
 
-        //         Assert.That(shippingPage.IsAddressErrorMessageDisplayed(), Is.True, "Address error message not displayed.");
-        //         Assert.That(shippingPage.IsCityErrorMessageDisplayed(), Is.True, "City error message not displayed.");
-        //         Assert.That(shippingPage.IsPhoneErrorMessageDisplayed(), Is.True, "Phone error message not displayed.");
-        //         // Assert.That(shippingPage.IsPostalCodeErrorMessageDisplayed(), Is.True, "Postal code + city mismatch message not displayed.");
+                Assert.That(shippingPage.IsAddressErrorMessageDisplayed(), Is.True, "Address error message not displayed.");
+                Assert.That(shippingPage.IsCityErrorMessageDisplayed(), Is.True, "City error message not displayed.");
+                Assert.That(shippingPage.IsPhoneErrorMessageDisplayed(), Is.True, "Phone error message not displayed.");
+                // Assert.That(shippingPage.IsPostalCodeErrorMessageDisplayed(), Is.True, "Postal code + city mismatch message not displayed.");
 
-        //         LoggerManager.Info("TC14_ShippingForm_RequiredFieldsValidation passed.");
-        //     }
-        //     catch (Exception ex)
-        //     {
-        //         LoggerManager.Error("TC14_ShippingForm_RequiredFieldsValidation failed: " + ex.Message);
-        //         throw;
-        //     }
-        //     finally
-        //     {
-        //         LoggerManager.Info("Ending test: TC14_ShippingForm_RequiredFieldsValidation");
-        //     }
-        // }
+                LoggerManager.Info("TC14_ShippingForm_RequiredFieldsValidation passed.");
+            }
+            catch (Exception ex)
+            {
+                LoggerManager.Error("TC14_ShippingForm_RequiredFieldsValidation failed: " + ex.Message);
+                throw;
+            }
+            finally
+            {
+                LoggerManager.Info("Ending test: TC14_ShippingForm_RequiredFieldsValidation");
+            }
+        }
 
-        // [Test]
-        // public void TC14_ShippingForm_RequiredFieldsValidation()
-        // {
-        //     try
-        //     {
-        //         LoggerManager.Info("Starting test: TC14_ShippingForm_RequiredFieldsValidation");
-
-        //         var loginPage = new LoginPage(Driver);
-        //         loginPage.OpenLoginForm();
-        //         loginPage.Login("wagas44949@adrewire.com", "JohnEng0");
-
-        //         var productPage = new ProductPage(Driver);
-        //         LoggerManager.Info("Navigating to 'Majice' section.");
-        //         productPage.navigateToMajice();
-        //         productPage.clickOnArmaniMajica();
-        //         productPage.selectSize("L");
-        //         productPage.clickAddToCart();
-        //         productPage.clickOnCartIcon();
-        //         productPage.clickOnProceedToCheckout();
-
-        //         var shippingPage = new ShippingPage(Driver);
-
-        //         LoggerManager.Info("Waiting for shipping form to be ready.");
-        //         shippingPage.WaitUntilShippingFormIsReady();
-
-        //         shippingPage.ClickNextButton();
-        //         shippingPage.WaitForErrorMessagesToAppear();
-
-        //         LoggerManager.Info("Verifying that required field error messages are displayed.");
-        //         Assert.That(shippingPage.IsAddressErrorMessageDisplayed(), Is.True, "Address error message not displayed.");
-        //         Assert.That(shippingPage.IsCityErrorMessageDisplayed(), Is.True, "City error message not displayed.");
-        //         Assert.That(shippingPage.IsPhoneErrorMessageDisplayed(), Is.True, "Phone error message not displayed.");
-
-        //         LoggerManager.Info("TC14_ShippingForm_RequiredFieldsValidation passed.");
-        //     }
-        //     catch (Exception ex)
-        //     {
-        //         LoggerManager.Error("TC14_ShippingForm_RequiredFieldsValidation failed: " + ex.Message);
-        //         throw;
-        //     }
-        //     finally
-        //     {
-        //         LoggerManager.Info("Ending test: TC14_ShippingForm_RequiredFieldsValidation");
-        //     }
-        // }
+       
 
 
-        // [Test]
-        // public void TC15_PostalCodeCityMismatch_ShowsErrorMessage()
-        // {
-        //     try
-        //     {
-        //         LoggerManager.Info("Starting test: TC15_PostalCodeCityMismatch_ShowsErrorMessage");
+        [Test]
+        public void TC15_PostalCodeCityMismatch_ShowsErrorMessage()
+        {
+            try
+            {
+                LoggerManager.Info("Starting test: TC15_PostalCodeCityMismatch_ShowsErrorMessage");
 
-        //         var loginPage = new LoginPage(Driver);
-        //         loginPage.OpenLoginForm();
-        //         loginPage.Login("wagas44949@adrewire.com", "JohnEng0");
+                var loginPage = new LoginPage(Driver);
+                loginPage.OpenLoginForm();
+                loginPage.Login("wagas44949@adrewire.com", "JohnEng0");
 
-        //         var productPage = new ProductPage(Driver);
-        //         LoggerManager.Info("Navigating to 'Majice' section.");
-        //         productPage.navigateToMajice();
-        //         productPage.clickOnArmaniMajica();
-        //         productPage.selectSize("L");
-        //         productPage.clickAddToCart();
-        //         productPage.clickOnCartIcon();
-        //         productPage.clickOnProceedToCheckout();
+                var productPage = new ProductPage(Driver);
+                LoggerManager.Info("Navigating to 'Majice' section.");
+                productPage.navigateToMajice();
+                productPage.clickOnArmaniMajica();
+                productPage.selectSize("L");
+                productPage.clickAddToCart();
+                productPage.clickOnCartIcon();
+                productPage.clickOnProceedToCheckout();
 
-        //         var shippingPage = new ShippingPage(Driver);
-        //         LoggerManager.Info("Waiting for shipping form to be ready.");
-        //         shippingPage.WaitUntilShippingFormIsReady();
+                var shippingPage = new ShippingPage(Driver);
+                LoggerManager.Info("Waiting for shipping form to be ready.");
+                shippingPage.WaitUntilShippingFormIsReady();
 
-        //         LoggerManager.Info("Entering mismatched city and postal code.");
-        //         shippingPage.EnterCity("Beograd");
-        //         shippingPage.EnterPostalCode("21000"); // Novi Sad ZIP, but city is Beograd
+                LoggerManager.Info("Entering mismatched city and postal code.");
+                shippingPage.EnterCity("Beograd");
+                shippingPage.EnterPostalCode("21000"); // Novi Sad ZIP, but city is Beograd
 
-        //         LoggerManager.Info("Clicking next to trigger error validation.");
-        //         shippingPage.ClickNextButton();
+                LoggerManager.Info("Clicking next to trigger error validation.");
+                shippingPage.ClickNextButton();
 
-        //         LoggerManager.Info("Verifying that mismatch error is displayed.");
-        //         Assert.That(shippingPage.IsPostalCodeCityMismatchMessageDisplayed(), Is.True,
-        //             "Mismatch error message not displayed when postal code and city do not match.");
+                LoggerManager.Info("Verifying that mismatch error is displayed.");
+                Assert.That(shippingPage.IsPostalCodeCityMismatchMessageDisplayed(), Is.True,
+                    "Mismatch error message not displayed when postal code and city do not match.");
 
-        //         LoggerManager.Info("TC15_PostalCodeCityMismatch_ShowsErrorMessage passed.");
-        //     }
-        //     catch (Exception ex)
-        //     {
-        //         LoggerManager.Error("TC15_PostalCodeCityMismatch_ShowsErrorMessage failed: " + ex.Message);
-        //         throw;
-        //     }
-        //     finally
-        //     {
-        //         LoggerManager.Info("Ending test: TC15_PostalCodeCityMismatch_ShowsErrorMessage");
-        //     }
-        // }
+                LoggerManager.Info("TC15_PostalCodeCityMismatch_ShowsErrorMessage passed.");
+            }
+            catch (Exception ex)
+            {
+                LoggerManager.Error("TC15_PostalCodeCityMismatch_ShowsErrorMessage failed: " + ex.Message);
+                throw;
+            }
+            finally
+            {
+                LoggerManager.Info("Ending test: TC15_PostalCodeCityMismatch_ShowsErrorMessage");
+            }
+        }
 
         [Test]
         public void TC16_InvalidStreetNameInCorrectCity_ShouldNotProceedToPayment()

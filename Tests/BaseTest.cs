@@ -29,9 +29,7 @@ namespace NulTien_XYZFashionAutomation.Tests
             new BasePage(Driver).acceptCookiesFromShadowDOM();
             Thread.Sleep(2000);
 
-            // var loginPage = new LoginPage(Driver);
-            // loginPage.OpenLoginForm();
-            // loginPage.Login("wagas44949@adrewire.com", "JohnEng0");
+            
         }
 
         public static IWebDriver GetDriver()

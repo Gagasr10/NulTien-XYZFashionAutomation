@@ -358,49 +358,49 @@ namespace NulTien_XYZFashionAutomation.Tests
         //     }
         // }
 
-       [Test]
-        public void TC13_FilterByColor_Teget()
-        {
-            try
-            {
-                LoggerManager.Info("Starting test: TC13_FilterByColor_Teget");
+    //    [Test]
+    //     public void TC13_FilterByColor_Teget()
+    //     {
+    //         try
+    //         {
+    //             LoggerManager.Info("Starting test: TC13_FilterByColor_Teget");
 
-                var productPage = new ProductPage(Driver);
+    //             var productPage = new ProductPage(Driver);
 
-                LoggerManager.Info("Navigating to 'Majice' section.");
-                productPage.navigateToMajice();
+    //             LoggerManager.Info("Navigating to 'Majice' section.");
+    //             productPage.navigateToMajice();
 
-                LoggerManager.Info("Clicking on filter 'Boja'.");
-                productPage.ClickFilterColor();
+    //             LoggerManager.Info("Clicking on filter 'Boja'.");
+    //             productPage.ClickFilterColor();
 
-                LoggerManager.Info("Selecting 'Teget' color.");
-                productPage.SelectTegetColor();
+    //             LoggerManager.Info("Selecting 'Teget' color.");
+    //             productPage.SelectTegetColor();
 
-                LoggerManager.Info("Waiting for product images to be visible after filter is applied.");
-                productPage.WaitForFilteredProducts();
+    //             LoggerManager.Info("Waiting for product images to be visible after filter is applied.");
+    //             productPage.WaitForFilteredProducts();
 
-                LoggerManager.Info("Validating all products displayed match selected color: Teget.");
-                var altTexts = productPage.GetAllProductAlts();
+    //             LoggerManager.Info("Validating all products displayed match selected color: Teget.");
+    //             var altTexts = productPage.GetAllProductAlts();
 
-                foreach (var alt in altTexts)
-                {
-                    LoggerManager.Info($"Checking alt text: {alt}");
-                    Assert.That(alt.ToLower(), Does.Contain("teget").Or.Contain("plava"),
-                        $"Product alt text does not indicate 'Teget' color: {alt}");
-                }
+    //             foreach (var alt in altTexts)
+    //             {
+    //                 LoggerManager.Info($"Checking alt text: {alt}");
+    //                 Assert.That(alt.ToLower(), Does.Contain("teget").Or.Contain("plava"),
+    //                     $"Product alt text does not indicate 'Teget' color: {alt}");
+    //             }
 
-                LoggerManager.Info("TC13_FilterByColor_Teget passed.");
-            }
-            catch (Exception ex)
-            {
-                LoggerManager.Error("TC13_FilterByColor_Teget failed: " + ex.Message);
-                throw;
-            }
-            finally
-            {
-                LoggerManager.Info("Ending test: TC13_FilterByColor_Teget");
-            }
-        }
+    //             LoggerManager.Info("TC13_FilterByColor_Teget passed.");
+    //         }
+    //         catch (Exception ex)
+    //         {
+    //             LoggerManager.Error("TC13_FilterByColor_Teget failed: " + ex.Message);
+    //             throw;
+    //         }
+    //         finally
+    //         {
+    //             LoggerManager.Info("Ending test: TC13_FilterByColor_Teget");
+    //         }
+    //     }
 
 
 

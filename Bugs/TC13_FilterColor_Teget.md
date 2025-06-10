@@ -34,5 +34,6 @@ This may affect user trust and reduce filter usability.
 
 Visual inconsistencies impact the user’s ability to make accurate product selections.
 
-Screenshots are available and attached to the internal tracking system (not shared here as per request).
+Screenshot is located in the Screenshots folder under the test execution directory.
+
 

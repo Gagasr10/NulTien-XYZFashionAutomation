@@ -39,6 +39,13 @@ namespace NulTien_XYZFashionAutomation.Pages
             }
         }
 
+        public void ScrollToElement(By locator)
+        {
+            IWebElement element = driver.FindElement(locator);
+            ((IJavaScriptExecutor)driver).ExecuteScript("arguments[0].scrollIntoView(true);", element);
+        }
+
+
         public WebDriverWait Wait => wait;
 
 

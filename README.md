@@ -113,55 +113,55 @@ This issue was reported and documented early, helping improve test coverage by d
 Below is a brief overview of the implemented test cases in the suite:
 
 ## Product Page
-* TC01_VerifyProductPageLoad
-Verifies that navigating to the "Majice" section and opening the "Armani Majica" product displays the correct product name.
+* TC01_VerifyProductPageLoad 
+- Verifies that navigating to the "Majice" section and opening the "Armani Majica" product displays the correct product name.
 
-* TC02_ProductLoadTimeUnder3Seconds
-Measures the time it takes for the product page to load and asserts it completes within 3 seconds.
+* TC02_ProductLoadTimeUnder3Seconds  
+ - Measures the time it takes for the product page to load and asserts it completes within 3 seconds.
 
-* TC03_CorrectPriceIsDisplayed
-Confirms that the displayed price of "Armani Majica" matches the expected price.
+* TC03_CorrectPriceIsDisplayed  
+ - Confirms that the displayed price of "Armani Majica" matches the expected price.
 
-* TC04_VerifyDiscountDisplayedCorrectly
-Validates the correctness of the discount percentage shown for "Versace Majica" based on old and new prices.
+* TC04_VerifyDiscountDisplayedCorrectly  
+ - Validates the correctness of the discount percentage shown for "Versace Majica" based on old and new prices.
 
-* TC05_CannotAddProductWithoutSelectingSize
-Ensures the product cannot be added to the cart unless a size is selected.
+* TC05_CannotAddProductWithoutSelectingSize  
+ - Ensures the product cannot be added to the cart unless a size is selected.
 
-* TC06_AddProductWithSize_Success
-Tests successful addition of a product to the cart after selecting a size, and validates its presence in the mini-cart.
+* TC06_AddProductWithSize_Success 
+ - Tests successful addition of a product to the cart after selecting a size, and validates its presence in the mini-cart.
 
-* TC07_AddProduct_CheckPersistenceAfterRefresh
-Confirms that the product remains in the cart after a browser refresh.
+* TC07_AddProduct_CheckPersistenceAfterRefresh 
+ - Confirms that the product remains in the cart after a browser refresh.
 
-* TC08_RemoveProductFromCart
-Adds a product to the cart and removes it, verifying the cart is empty afterward.
+* TC08_RemoveProductFromCart 
+ - Adds a product to the cart and removes it, verifying the cart is empty afterward.
 
-* TC09_UpdateQuantityInCart
-Changes product quantity in the mini-cart and asserts the total price updates accordingly.
+* TC09_UpdateQuantityInCart  
+ - Changes product quantity in the mini-cart and asserts the total price updates accordingly.
 
-* TC13_FilterByColor_Teget
-Applies the "Teget" color filter and validates that all visible products match the selected color based on image alt text.
+* TC13_FilterByColor_Teget 
+ - Applies the "Teget" color filter and validates that all visible products match the selected color based on image alt text.
 
 ## Search Page
-* TC10_SearchWithInvalidCharacters
-Enters invalid symbols in the search bar and checks that the "no results" message is correctly shown.
+* TC10_SearchWithInvalidCharacters - 
+ - Enters invalid symbols in the search bar and checks that the "no results" message is correctly shown.
 
-* TC11_SearchWithExactProductName
-Searches for a full product name and verifies that the correct item appears in the results.
+* TC11_SearchWithExactProductName - 
+ - Searches for a full product name and verifies that the correct item appears in the results.
 
-* TC12_SearchWithExactProductName_MobileView
-Runs the same exact search as TC11 but simulates a mobile screen resolution to validate responsive behavior.
+* TC12_SearchWithExactProductName_MobileView - 
+ - Runs the same exact search as TC11 but simulates a mobile screen resolution to validate responsive behavior.
 
 ## Shipping Page
-* TC14_ShippingForm_RequiredFieldsValidation
-Attempts to proceed without filling required fields in the shipping form, validating that error messages are shown.
+* TC14_ShippingForm_RequiredFieldsValidation 
+ - Attempts to proceed without filling required fields in the shipping form, validating that error messages are shown.
 
-* TC15_PostalCodeCityMismatch_ShowsErrorMessage
-Enters mismatched city and postal code values to ensure the form displays the appropriate error.
+* TC15_PostalCodeCityMismatch_ShowsErrorMessage 
+ - Enters mismatched city and postal code values to ensure the form displays the appropriate error.
 
 * TC16_InvalidStreetNameInCorrectCity_ShouldNotProceedToPayment
-Submits an address that doesn't exist for the selected city and verifies the user is not taken to the payment page.
+ - Submits an address that doesn't exist for the selected city and verifies the user is not taken to the payment page.
 
 ## Test Results Summary
 
@@ -187,13 +187,13 @@ Detailed bug reports can be found in the `/Bugs` directory.
 
 - Example log (TC03_CorrectPriceIsDisplayed):
 
-2025-06-11 17:36:34.3650 INFO Starting test: TC03_CorrectPriceIsDisplayed
-2025-06-11 17:36:52.5103 INFO Navigating to 'Majice' section.
-2025-06-11 17:36:56.6105 INFO Clicking on 'Armani Majica'.
-2025-06-11 17:37:01.8437 INFO Retrieving actual product price.
-2025-06-11 17:37:01.9224 INFO Actual price: 5.390,00 RSD, Expected price: 5.390,00 RSD
-2025-06-11 17:37:01.9300 INFO TC03_CorrectPriceIsDisplayed passed.
-2025-06-11 17:37:01.9300 INFO Ending test: TC03_CorrectPriceIsDisplayed
+- 2025-06-11 17:36:34.3650 INFO Starting test: TC03_CorrectPriceIsDisplayed 
+- 2025-06-11 17:36:52.5103 INFO Navigating to 'Majice' section. 
+- 2025-06-11 17:36:56.6105 INFO Clicking on 'Armani Majica'. 
+- 2025-06-11 17:37:01.8437 INFO Retrieving actual product price. 
+- 2025-06-11 17:37:01.9224 INFO Actual price: 5.390,00 RSD, Expected price: 5.390,00 RSD
+- 2025-06-11 17:37:01.9300 INFO TC03_CorrectPriceIsDisplayed passed.  
+- 2025-06-11 17:37:01.9300 INFO Ending test: TC03_CorrectPriceIsDisplayed 
 
 ## Highlights
 

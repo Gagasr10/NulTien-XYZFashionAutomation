@@ -49,7 +49,7 @@ Dummy user credentials used for login and checkout tests:
 
 - **First Name:** J  
 - **Last Name:** Douglas  
-- **Email:** kixiwa5736@cigidea.com  
+- **Email:** wagas44949@adrewire.com
 - **Password:** JohnEng0  
 
 > Note: The application currently allows user creation with only 1 character in the first name, which will be covered in negative testing (input validation).

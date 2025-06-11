@@ -1,0 +1,7 @@
+2025-06-11 17:36:34.3650 INFO NulTien_XYZFashionAutomation.Utilities.LoggerManager - Starting test: TC03_CorrectPriceIsDisplayed
+2025-06-11 17:36:52.5103 INFO NulTien_XYZFashionAutomation.Utilities.LoggerManager - Navigating to 'Majice' section.
+2025-06-11 17:36:56.6105 INFO NulTien_XYZFashionAutomation.Utilities.LoggerManager - Clicking on 'Armani Majica'.
+2025-06-11 17:37:01.8437 INFO NulTien_XYZFashionAutomation.Utilities.LoggerManager - Retrieving actual product price.
+2025-06-11 17:37:01.9224 INFO NulTien_XYZFashionAutomation.Utilities.LoggerManager - Actual price: 5.390,00 RSD, Expected price: 5.390,00 RSD
+2025-06-11 17:37:01.9300 INFO NulTien_XYZFashionAutomation.Utilities.LoggerManager - TC03_CorrectPriceIsDisplayed passed.
+2025-06-11 17:37:01.9300 INFO NulTien_XYZFashionAutomation.Utilities.LoggerManager - Ending test: TC03_CorrectPriceIsDisplayed
